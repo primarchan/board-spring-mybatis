@@ -22,6 +22,20 @@ public class BoardController {
     @Autowired
     BoardService boardService;
 
+    @GetMapping("/read")
+    public String read(Integer bno, Integer page, Integer pageSize, Model m) {
+        try {
+            BoardDto boardDto = boardService.read(bno);
+            // m.addAttribute("boardDto", boardDto);  // 아래 코드와 동일
+            m.addAttribute(boardDto);
+            m.addAttribute("page", page);
+            m.addAttribute("pageSize", pageSize);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "board";
+    }
+
     @GetMapping("/list")
     public String list(Integer page, Integer pageSize, Model m, HttpServletRequest request) {
         if(!loginCheck(request))
@@ -46,6 +60,8 @@ public class BoardController {
             List<BoardDto> list = boardService.getPage(map);
             m.addAttribute("list", list);
             m.addAttribute("ph", pageHandler);
+            m.addAttribute("page", page);
+            m.addAttribute("pageSize", pageSize);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
