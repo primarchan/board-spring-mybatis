@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -21,6 +23,26 @@ public class BoardController {
 
     @Autowired
     BoardService boardService;
+
+    @PostMapping("/remove")
+    public String remove(Integer bno, Integer page, Integer pageSize, Model m, HttpSession session) {
+        System.out.println(bno);
+        System.out.println(page);
+        System.out.println(pageSize);
+        String writer = (String) session.getAttribute("id");
+        System.out.println(writer);
+        try {
+            int removeResult = boardService.remove(bno, writer);
+            System.out.println(removeResult);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        m.addAttribute("page", page);
+        m.addAttribute("pageSize", pageSize);
+
+        return "redirect:/board/list";
+    }
 
     @GetMapping("/read")
     public String read(Integer bno, Integer page, Integer pageSize, Model m) {
