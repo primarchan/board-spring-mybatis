@@ -25,7 +25,7 @@ public class BoardDaoImplTest {
     public void insertTestData() throws Exception {
         boardDao.deleteAll();
         for (int i = 1; i <= 220; i++) {
-            BoardDto boardDto = new BoardDto("title" + i, "no cotent", "tester" + i);
+            BoardDto boardDto = new BoardDto("title" + i, "no cotent", "test01");
             boardDao.insert(boardDto);
         }
     }
