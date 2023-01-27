@@ -68,4 +68,19 @@
         WHERE bno = #{bno}
     </update>
 
+    <select id="searchSelectPage" parameterType="SearchCondition" resultType="BoardDto">
+        <include refid="selectFromBoard"/>
+        WHERE true
+        AND title LIKE concat('%', #{keyword}, '%')
+        ORDER BY reg_date DESC, bno DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+        SELECT count(*)
+        FROM board
+        WHERE true
+        AND title LIKE concat('%', #{keyword}, '%')
+    </select>
+
 </mapper>

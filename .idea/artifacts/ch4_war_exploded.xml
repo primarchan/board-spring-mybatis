@@ -14,6 +14,7 @@
           <element id="module-output" name="ch4" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.9" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.7" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.7.RELEASE" />
