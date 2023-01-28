@@ -6,5 +6,6 @@
     <typeAliases>
         <typeAlias alias="BoardDto" type="com.primarchan.board.domain.BoardDto"/>
         <typeAlias alias="SearchCondition" type="com.primarchan.board.domain.SearchCondition"/>
+        <typeAlias alias="CommentDto" type="com.primarchan.board.domain.CommentDto"/>
     </typeAliases>
 </configuration>
