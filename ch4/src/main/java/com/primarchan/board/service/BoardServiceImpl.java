@@ -2,6 +2,7 @@ package com.primarchan.board.service;
 
 import com.primarchan.board.dao.BoardDao;
 import com.primarchan.board.domain.BoardDto;
+import com.primarchan.board.domain.SearchCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,16 +53,14 @@ public class BoardServiceImpl implements BoardService {
         return boardDao.update(boardDto);
     }
 
-    /*
-    @Override
-    public int getSearchResultCnt(SearchCondition sc) throws Exception {
-        return boardDao.searchResultCnt(sc);
-    }
-
     @Override
     public List<BoardDto> getSearchResultPage(SearchCondition sc) throws Exception {
         return boardDao.searchSelectPage(sc);
     }
-     */
+
+    @Override
+    public int getSearchResultCnt(SearchCondition sc) throws Exception {
+        return boardDao.searchResultCnt(sc);
+    }
 
 }
