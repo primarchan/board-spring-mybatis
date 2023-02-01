@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SimpleRestController {
 
-    @GetMapping("/ajax")
-    public String ajax() {
-        return "ajax";
+    @GetMapping("/test")
+    public String test() {
+        return "test";
     }
 
     @PostMapping("/send")
